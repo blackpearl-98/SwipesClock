@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090c">
+  <meta name="description" content="SwipeClock privacy policy: what attendance data the extension processes and how it is stored.">
+  <title>Privacy Policy — SwipeClock</title>
+  <style>
+    :root { color-scheme:dark; --bg:#09090c; --panel:#111116; --line:#292832; --text:#f7f5fb; --muted:#c0bbca; --purple:#d89bff; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 system-ui,-apple-system,"Segoe UI",sans-serif}
+    a{color:var(--purple);text-underline-offset:4px}.wrap{width:min(820px,calc(100% - 36px));margin:auto}
+    header{padding:28px 0;border-bottom:1px solid var(--line)}header a{color:var(--text);text-decoration:none;font-weight:700}
+    main{padding:52px 0 72px}h1{font-size:clamp(2rem,6vw,3rem);line-height:1.15;letter-spacing:-.04em;margin:0 0 8px}
+    .date{color:var(--muted);margin:0 0 38px}h2{font-size:1.2rem;margin:30px 0 8px}p,li{color:var(--muted)}ul{padding-left:23px}li{padding:3px 0}
+    .notice{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin:24px 0}
+    footer{border-top:1px solid var(--line);padding:22px 0 30px;color:var(--muted);font-size:.9rem}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header><a href="./">← SwipeClock</a></header>
+    <main>
+      <h1>Privacy Policy</h1>
+      <p class="date">Last updated: November 22, 2026</p>
+      <p>SwipeClock is a Chrome extension by BlackPearl that calculates work time, breaks, progress, and estimated leaving time from attendance swipes in greytHR.</p>
+
+      <div class="notice"><strong>Your choice matters.</strong><p>SwipeClock does not read greytHR page content or attendance responses until you select <strong>Allow &amp; continue</strong> in the extension popup. You can stop syncing and clear locally cached swipes from the popup.</p></div>
+
+      <h2>Information processed</h2>
+      <p>SwipeClock processes today's swipe dates and times and IN/OUT directions. When reading the swipe table, it may temporarily inspect matching row text to locate those values; other row text is discarded, and door or location labels are not stored. It may use the current greytHR page origin and a same-origin API endpoint path to retrieve today's swipe records. It uses your existing greytHR session, including greytHR cookies and, when available, the greytHR XSRF token, for requests to that same greytHR site. SwipeClock does not capture or store Authorization headers.</p>
+
+      <h2>How information is used</h2>
+      <p>Attendance data is used only to display work sessions and calculate work time, break time, progress toward your daily target, and estimated leaving time.</p>
+
+      <h2>Storage and retention</h2>
+      <ul>
+        <li>Swipe dates, times, directions, and the current day's cache are stored in Chrome local storage.</li>
+        <li>A greytHR API endpoint path may be stored in Chrome local storage to support later same-origin sync requests.</li>
+        <li>Daily target preferences are stored with Chrome Sync when changed and may synchronize according to your Chrome settings.</li>
+        <li>Text pasted manually into the popup is processed there and is not saved by SwipeClock.</li>
+        <li>Locally stored swipe data remains until replaced or cleared. Use <strong>Stop syncing &amp; clear cached swipes</strong> in the popup to remove the consent setting, swipe cache, and saved endpoint path. This does not remove daily target preferences from Chrome Sync.</li>
+      </ul>
+
+      <h2>Sharing</h2>
+      <p>SwipeClock does not operate a server, sell attendance data, or share it with the developer or unrelated third parties. When retrieving swipe records, your browser sends the request and your existing greytHR session to greytHR. Daily target preferences use Chrome Sync and may be handled by Google according to your Chrome sync settings. SwipeClock does not use information for advertising or analytics.</p>
+
+      <h2>Limited use</h2>
+      <p>SwipeClock's use and transfer of information obtained from greytHR pages and requests is limited to providing its attendance time-tracking features and complies with the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+
+      <h2>Contact</h2>
+      <p>For privacy questions, contact BlackPearl through the support contact provided on the SwipeClock Chrome Web Store listing.</p>
+    </main>
+    <footer>Developed with ❤️ in Hyderabad by BlackPearl</footer>
+  </div>
+</body>
+</html>
