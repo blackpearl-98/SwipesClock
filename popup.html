@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SwipeClock</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="top">
+        <div class="brand">
+          <svg class="brand-logo" width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect x="1" y="1" width="30" height="30" rx="7.5" fill="#09090B" stroke="#3F3F46" stroke-width="1.2" />
+            <path d="M22.84 9.85 A9.2 9.2 0 1 1 16 6.8" stroke="#A855F7" stroke-width="2.8" />
+            <path d="M15.2 3.7 L20.4 6.8 L15.2 9.9 Z" fill="#A855F7" />
+            <path d="M16 10.7 V16 L12.02 18.3" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            <circle cx="16" cy="16" r="1.75" fill="#FFFFFF" />
+          </svg>
+          <div>
+            <h1>SwipeClock</h1>
+            <p id="sourceSub" class="sub">Checking greytHR swipes…</p>
+          </div>
+        </div>
+        <button id="refreshBtn" class="icon-btn" type="button" title="Rescan greytHR page">Sync</button>
+      </header>
+
+      <section id="consentGate" class="consent-gate hidden" aria-labelledby="consentTitle">
+        <h2 id="consentTitle">Privacy &amp; swipe access</h2>
+        <p>SwipeClock reads today’s swipe dates, times, and IN/OUT directions from greytHR to calculate your work and break time. It uses your existing greytHR session to request those records.</p>
+        <p>Swipe data stays in Chrome local storage. Daily target preferences may sync through Chrome Sync. SwipeClock does not send data to its own server.</p>
+        <div class="consent-actions">
+          <button id="declineConsentBtn" class="secondary-btn" type="button">Not now</button>
+          <button id="acceptConsentBtn" class="primary-btn" type="button">Allow &amp; continue</button>
+        </div>
+      </section>
+
+      <div id="trackerContent" class="hidden">
+      <section class="hero">
+        <div class="ring-wrap">
+          <svg class="ring" viewBox="0 0 140 140" aria-hidden="true">
+            <circle class="ring-track" cx="70" cy="70" r="58" />
+            <circle id="ringProgress" class="ring-fill" cx="70" cy="70" r="58" stroke-dasharray="364.4" stroke-dashoffset="364.4" />
+          </svg>
+          <div class="ring-center">
+            <span id="statusText" class="status-label">Idle</span>
+            <strong id="liveTimer" class="live-timer">00:00:00</strong>
+            <span id="pctText" class="pct-label">0% of goal</span>
+          </div>
+        </div>
+
+        <div class="leave-banner">
+          <span class="leave-label">Ideal Leaving Time</span>
+          <strong id="leaveTime" class="leave-value">--:--</strong>
+        </div>
+      </section>
+
+      <section class="stats-row">
+        <div class="stat">
+          <span class="stat-label">Gross</span>
+          <strong id="grossVal" class="stat-val">00:00:00</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Break</span>
+          <strong id="breakVal" class="stat-val">00:00:00</strong>
+        </div>
+        <div class="stat">
+          <span id="remLabel" class="stat-label">Remaining</span>
+          <strong id="remVal" class="stat-val">08:00:00</strong>
+        </div>
+      </section>
+
+      <section class="target-section">
+        <div class="target-bar">
+          <span class="target-label">Daily Target</span>
+          <div class="target-pills" role="group" aria-label="Daily target hours">
+            <button type="button" class="target-btn" data-secs="28800">8h</button>
+            <button type="button" class="target-btn" data-secs="30600">8.5h</button>
+            <button type="button" class="target-btn" data-secs="32400">9h</button>
+          </div>
+        </div>
+        <form id="targetForm" class="target-custom">
+          <label for="targetInput" class="target-sub">Custom (HH:MM:SS)</label>
+          <input id="targetInput" type="text" placeholder="08:00:00" value="08:00:00" />
+          <button id="applyTargetBtn" type="submit" class="mini-btn">Set</button>
+        </form>
+        <p id="targetError" class="error-text hidden"></p>
+      </section>
+
+      <section class="sessions">
+        <div class="sec-head">
+          <h2>Today's Sessions <span class="order-hint">Present → Past</span></h2>
+          <button id="togglePasteBtn" class="link-btn" type="button">Paste swipes</button>
+        </div>
+        <ul id="sessionList" class="session-list"></ul>
+      </section>
+
+      <section id="pasteBox" class="paste-box hidden">
+        <textarea id="pasteInput" rows="3" placeholder="09:15:00 am  IN&#10;01:05:00 pm  OUT&#10;01:45:00 pm  IN"></textarea>
+        <button id="applyPasteBtn" class="primary-btn" type="button">Calculate Swipes</button>
+      </section>
+      </div>
+
+      <footer class="credit">
+        <button id="privacyResetBtn" class="privacy-reset hidden" type="button">Stop syncing &amp; clear cached swipes</button>
+        <span>Developed with ❤️ in Hyderabad by BlackPearl</span>
+      </footer>
+    </div>
+
+    <script src="calculator.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
